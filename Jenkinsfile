@@ -13,7 +13,10 @@ pipeline{
                     ls -la
                     npm --version
                     node --version
-                    npm ci
+                    rm -rf node_modules package-lock.json
+                    npm cache clean --force
+                    npm install
+
                     npm run build
                     ls -laA
                 '''
