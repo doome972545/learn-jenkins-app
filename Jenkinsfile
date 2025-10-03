@@ -8,6 +8,9 @@ pipeline{
                     reuseNode true
                 }
             }
+            environment {
+                    NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"   // cache npm ไว้ใน workspace
+            }
             steps{
                 sh '''
                     ls -la
@@ -18,7 +21,7 @@ pipeline{
                     npm install
 
                     npm run build
-                    ls -laA
+                    ls -la
                 '''
             }
            
